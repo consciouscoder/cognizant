@@ -1,11 +1,91 @@
+@import '~antd/dist/antd.css';
+
 .centerDiv {
-  background: red;
-  bottom: 0;
-  height: 250px;
-  left: 0;
-  margin: auto;
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 250px;
+    /* background: red; */
+    border-radius: 25px;
+    width: 300px;
+    height: 300px;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    touch-action: none;
 }
+
+.skyDiv {
+    margin-top: 35px;
+}
+
+.dateDiv {
+    text-align: center;
+    vertical-align: middle;
+    font-family: 'Helvetica Neue', sans-serif; 
+    font-size: 16px; 
+    color: #999999;
+    letter-spacing: 4px;
+}
+
+.temp {
+    text-align: center;
+    vertical-align: middle;
+    font-family: 'Helvetica Neue', sans-serif; 
+    font-size: 40px; 
+    color: white;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-top: 15px;
+    margin-left: 48px;
+    /* float: left; */
+    flex: 0 0 50%;
+}
+
+.tempLayout {
+    display: flex;
+}
+
+.tempHighLowLayout {
+    display: flex;
+    flex-direction: column;    
+}
+
+.tempHigh {
+    font-family: 'Helvetica Neue', sans-serif; 
+    font-size: 16px; 
+    color: white;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-top: 14px;
+    width: 30px;
+    padding: 3px;
+    flex: 1;
+}
+
+.tempLow {
+    font-family: 'Helvetica Neue', sans-serif; 
+    font-size: 16px; 
+    color: white;
+    letter-spacing: 2px;
+    text-align: center;
+    border-top: 1px solid white;
+    width: 30px;
+    padding: 3px;
+    flex: 1;
+}
+
+.summary {
+    text-align: center;
+    font-family: 'Helvetica Neue', sans-serif; 
+    letter-spacing: 1px;
+    font-size: 12px; 
+    color: white;
+    margin-top: 10px;
+}
+
+.sliderDiv {
+    margin-top: 25px;
+    vertical-align: middle;
+}
+
+  
