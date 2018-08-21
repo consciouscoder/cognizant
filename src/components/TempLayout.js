@@ -1,20 +1,23 @@
 import React from 'react';
 
-export default class TempLayout extends React.Component {
+// TempLayout - Functional Component (stateless) -- Formats the layout of current temperature, high and low temperature and summary.
 
+const TempLayout = props => {
 
-    render() {
-        return (
-            <div>
-                <div className="tempLayout">
-                <div className="temp">{this.props.temperature}°F</div>
-                    <div className="tempHighLowLayout">
-                        <div className="tempHigh">{this.props.tempHigh}</div>
-                        <div className="tempLow">{this.props.tempLow}</div>
-                    </div>
-                </div>
-                <div className="summary">{this.props.summary}</div>
+    const { temperature, tempHigh, tempLow, summary } = props;
+
+    return (
+        <div>
+        <div className="tempLayout">
+        <div className="temp">{temperature}°F</div>
+            <div className="tempHighLowLayout">
+                <div className="tempHigh">{tempHigh}</div>
+                <div className="tempLow">{tempLow}</div>
             </div>
-        )
-    }
-}
+        </div>
+        <div className="summary">{summary}</div>
+        </div>
+    );
+};
+
+export default TempLayout;

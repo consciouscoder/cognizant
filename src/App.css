@@ -1,91 +1,41 @@
-@import '~antd/dist/antd.css';
-
-.centerDiv {
-    /* background: red; */
-    border-radius: 25px;
-    width: 300px;
-    height: 300px;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    margin: auto;
-    position: absolute;
-    touch-action: none;
+.linksDiv {
+    text-align: center;
+    margin-bottom: 50px;
 }
 
-.skyDiv {
-    margin-top: 35px;
+.divSpace {
+    margin-bottom: 50px;
 }
 
-.dateDiv {
+.divTimeMachine {
     text-align: center;
     vertical-align: middle;
     font-family: 'Helvetica Neue', sans-serif; 
-    font-size: 16px; 
-    color: #999999;
-    letter-spacing: 4px;
-}
-
-.temp {
-    text-align: center;
-    vertical-align: middle;
-    font-family: 'Helvetica Neue', sans-serif; 
-    font-size: 40px; 
-    color: white;
-    font-weight: bold;
+    font-size: 20px; 
+    color:#999999;
     letter-spacing: 3px;
-    margin-top: 15px;
-    margin-left: 48px;
-    /* float: left; */
-    flex: 0 0 50%;
+    margin-bottom: 10px;
+    margin-top: 100px;
 }
 
-.tempLayout {
-    display: flex;
-}
-
-.tempHighLowLayout {
-    display: flex;
-    flex-direction: column;    
-}
-
-.tempHigh {
-    font-family: 'Helvetica Neue', sans-serif; 
-    font-size: 16px; 
-    color: white;
-    letter-spacing: 2px;
+.divThreeDay {
     text-align: center;
-    margin-top: 14px;
-    width: 30px;
-    padding: 3px;
-    flex: 1;
-}
-
-.tempLow {
-    font-family: 'Helvetica Neue', sans-serif; 
-    font-size: 16px; 
-    color: white;
-    letter-spacing: 2px;
-    text-align: center;
-    border-top: 1px solid white;
-    width: 30px;
-    padding: 3px;
-    flex: 1;
-}
-
-.summary {
-    text-align: center;
-    font-family: 'Helvetica Neue', sans-serif; 
-    letter-spacing: 1px;
-    font-size: 12px; 
-    color: white;
-    margin-top: 10px;
-}
-
-.sliderDiv {
-    margin-top: 25px;
     vertical-align: middle;
+    font-family: 'Helvetica Neue', sans-serif; 
+    font-size: 20px; 
+    color:#999999;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+    margin-top: 100px;
 }
 
-  
+.divSevenDay {
+    text-align: center;
+    vertical-align: middle;
+    font-family: 'Helvetica Neue', sans-serif; 
+    font-size: 20px; 
+    color:#999999;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+    margin-top: 100px;
+}
