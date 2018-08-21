@@ -35,6 +35,7 @@ class App extends Component {
         const API_URL = 'https://api.darksky.net/forecast/';
         const API_KEY = '2f59170b5a75d855ff4dbbcfa4c498e0';
         const cognizantLatLong = '40.016457,-105.285884';
+        const excludeBlocks = '?exclude=minutely,hourly,alerts,flags';
         
         if (date) {
           date = `,${date}`;
@@ -42,10 +43,11 @@ class App extends Component {
           date = '';
         }
 
-        //https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/2f59170b5a75d855ff4dbbcfa4c498e0/40.016457,-105.285884
+        //https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/2f59170b5a75d855ff4dbbcfa4c498e0/40.016457,-105.285884?exclude=minutely,hourly,alerts,flags
         
-        axios.get(`${CORS}${API_URL}${API_KEY}/${cognizantLatLong}${date}`)
+        axios.get(`${CORS}${API_URL}${API_KEY}/${cognizantLatLong}${date}${excludeBlocks}`)
             .then(response => { 
+                console.log(response);
                 const dsData = response.data;
                 const summary = dsData.currently.summary;
                 const temperature = Math.round(dsData.currently.temperature);
@@ -115,7 +117,9 @@ class App extends Component {
             <div style={doneLoading ? {} : { display: 'none' }}>
                 <div>
                     <DateSlider callbackParent={date => this.getTimeMachine(date)} />
-                    <div className="dateDiv">{`${timeMachineDate}`}</div>
+                    <div className="dateDiv">
+                        {`${timeMachineDate}`}
+                    </div>
                 </div>
             </div>
         </div>
