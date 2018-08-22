@@ -7,12 +7,15 @@ class App extends Component {
 
 render() {
 
+    const latLong = '40.016457,-105.285884';
+    const API_KEY = '0c7f10d0d5fa0d8602b3c9664767e7f7';
+
     const TimeMachine = () => {
         return (
             <div>
                 <div className="divTimeMachine">TIME MACHINE</div>
                 <div className="divSpace">
-                    <WeatherBlock />
+                    <WeatherBlock API_KEY={API_KEY} latLong={latLong} />
                 </div>
             </div>
         );
@@ -23,13 +26,13 @@ render() {
             <div>
                 <div className="divThreeDay">3-DAY FORECAST</div>
                 <div className="divSpace">
-                    <WeatherBlock forecastDay={1} />
+                    <WeatherBlock forecastDay={1} API_KEY={API_KEY} latLong={latLong} />
                 </div>
                 <div className="divSpace">
-                    <WeatherBlock forecastDay={2} />
+                    <WeatherBlock forecastDay={2} API_KEY={API_KEY} latLong={latLong} />
                 </div>
                 <div className="divSpace">
-                    <WeatherBlock forecastDay={3} />
+                    <WeatherBlock forecastDay={3} API_KEY={API_KEY} latLong={latLong} />
                 </div>
             </div>
         );
@@ -40,25 +43,25 @@ render() {
             <div>
                 <div className="divSevenDay">7-DAY FORECAST</div>
                 <div className="divSpace">
-                    <WeatherBlock forecastDay={1} />
+                    <WeatherBlock forecastDay={1} API_KEY={API_KEY} latLong={latLong} />
                 </div>
                 <div className="divSpace">
-                    <WeatherBlock forecastDay={2} />
+                    <WeatherBlock forecastDay={2} API_KEY={API_KEY} latLong={latLong} />
                 </div>
                 <div className="divSpace">
-                    <WeatherBlock forecastDay={3} />
+                    <WeatherBlock forecastDay={3} API_KEY={API_KEY} latLong={latLong} />
                 </div>
                 <div className="divSpace">
-                    <WeatherBlock forecastDay={4} />
+                    <WeatherBlock forecastDay={4} API_KEY={API_KEY} latLong={latLong} />
                 </div>
                 <div className="divSpace">
-                    <WeatherBlock forecastDay={5} />
+                    <WeatherBlock forecastDay={5} API_KEY={API_KEY} latLong={latLong} />
                 </div>
                 <div className="divSpace">
-                    <WeatherBlock forecastDay={6} />
+                    <WeatherBlock forecastDay={6} API_KEY={API_KEY} latLong={latLong} />
                 </div>
                 <div className="divSpace">
-                    <WeatherBlock forecastDay={7} />
+                    <WeatherBlock forecastDay={7} API_KEY={API_KEY} latLong={latLong} />
                 </div>
             </div>
         );

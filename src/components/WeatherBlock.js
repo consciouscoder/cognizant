@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Icons from './Icons';
 import TempLayout from './TempLayout';
 import DateSlider from './DateSlider';
@@ -20,13 +21,8 @@ export default class WeatherBlock extends React.Component {
     doneLoading: false
   }
 
-  constructor() {
-      super();
-      let forecastDay = '';
-  }
-
   componentDidMount() {
-    this.getDarkSkyAPI();
+    this.getDarkSkyAPI('');
   }
 
   getDarkSkyAPI = date => {
@@ -36,14 +32,12 @@ export default class WeatherBlock extends React.Component {
         // https://cors-anywhere.herokuapp.com/ -- backup CORS proxy
         const CORS = 'http://cors-anywhere.dan.earth:8080/';
         const API_URL = 'https://api.darksky.net/forecast/';
-        const API_KEY = '0c7f10d0d5fa0d8602b3c9664767e7f7';
-        const cognizantLatLong = '40.016457,-105.285884';
-        const excludeBlocks = '?exclude=minutely,hourly,alerts,flags';
+        const API_KEY = this.props.API_KEY; // Get from props '0c7f10d0d5fa0d8602b3c9664767e7f7';
+        const cognizantLatLong = this.props.latLong; // Get from props '40.016457,-105.285884';
+        const excludeBlocks = '?exclude=minutely,hourly,alerts,flags'; // exclude these from JSON response
         
         if (date) {
           date = `,${date}`;
-        } else {
-          date = '';
         }
    
         const forecastDay = this.props.forecastDay;
@@ -152,3 +146,9 @@ export default class WeatherBlock extends React.Component {
     );
   }
 }
+
+WeatherBlock.propTypes = {
+    forecastDay: PropTypes.number,
+    latLong: PropTypes.string.isRequired,
+    API_KEY: PropTypes.string.isRequired
+};
