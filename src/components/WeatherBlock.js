@@ -32,8 +32,8 @@ export default class WeatherBlock extends React.Component {
         // https://cors-anywhere.herokuapp.com/ -- backup CORS proxy
         const CORS = 'http://cors-anywhere.dan.earth:8080/';
         const API_URL = 'https://api.darksky.net/forecast/';
-        const API_KEY = this.props.API_KEY; // Get from props '0c7f10d0d5fa0d8602b3c9664767e7f7';
-        const cognizantLatLong = this.props.latLong; // Get from props '40.016457,-105.285884';
+        const API_KEY = this.props.API_KEY || '0c7f10d0d5fa0d8602b3c9664767e7f7'; // Get from props
+        const cognizantLatLong = this.props.latLong || '40.016457,-105.285884';   // Get from props
         const excludeBlocks = '?exclude=minutely,hourly,alerts,flags'; // exclude these from JSON response
         
         if (date) {
@@ -149,6 +149,6 @@ export default class WeatherBlock extends React.Component {
 
 WeatherBlock.propTypes = {
     forecastDay: PropTypes.number,
-    latLong: PropTypes.string.isRequired,
-    API_KEY: PropTypes.string.isRequired
+    latLong: PropTypes.string,
+    API_KEY: PropTypes.string
 };

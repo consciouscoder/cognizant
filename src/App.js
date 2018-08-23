@@ -15,7 +15,7 @@ render() {
             <div>
                 <div className="divTimeMachine">TIME MACHINE</div>
                 <div className="divSpace">
-                    <WeatherBlock API_KEY={API_KEY} latLong={latLong} />
+                    <WeatherBlock />
                 </div>
             </div>
         );
@@ -43,25 +43,25 @@ render() {
             <div>
                 <div className="divSevenDay">7-DAY FORECAST</div>
                 <div className="divSpace">
-                    <WeatherBlock forecastDay={1} API_KEY={API_KEY} latLong={latLong} />
+                    <WeatherBlock forecastDay={1} />
                 </div>
                 <div className="divSpace">
-                    <WeatherBlock forecastDay={2} API_KEY={API_KEY} latLong={latLong} />
+                    <WeatherBlock forecastDay={2} />
                 </div>
                 <div className="divSpace">
-                    <WeatherBlock forecastDay={3} API_KEY={API_KEY} latLong={latLong} />
+                    <WeatherBlock forecastDay={3} />
                 </div>
                 <div className="divSpace">
-                    <WeatherBlock forecastDay={4} API_KEY={API_KEY} latLong={latLong} />
+                    <WeatherBlock forecastDay={4} />
                 </div>
                 <div className="divSpace">
-                    <WeatherBlock forecastDay={5} API_KEY={API_KEY} latLong={latLong} />
+                    <WeatherBlock forecastDay={5} />
                 </div>
                 <div className="divSpace">
-                    <WeatherBlock forecastDay={6} API_KEY={API_KEY} latLong={latLong} />
+                    <WeatherBlock forecastDay={6} />
                 </div>
                 <div className="divSpace">
-                    <WeatherBlock forecastDay={7} API_KEY={API_KEY} latLong={latLong} />
+                    <WeatherBlock forecastDay={7} />
                 </div>
             </div>
         );

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Skycons from 'react-skycons';
 
 export default class Icons extends React.Component {
@@ -40,3 +41,7 @@ export default class Icons extends React.Component {
         )
     }
 }
+
+Icons.propTypes = {
+    skyIcon: PropTypes.string
+};
