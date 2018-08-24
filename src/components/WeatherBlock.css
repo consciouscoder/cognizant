@@ -64,6 +64,7 @@
     width: 30px;
     padding: 3px;
     flex: 1;
+    cursor: pointer;
 }
 
 .tempLow {
@@ -76,6 +77,7 @@
     width: 30px;
     padding: 3px;
     flex: 1;
+    cursor: pointer;
 }
 
 .summary {

@@ -158,7 +158,7 @@ export default class WeatherBlock extends React.Component {
                                 precipType={precipType}
                                 humidity={humidity}
                                 uvIndex={uvIndex}
-                                summary={summary}    
+                                summary={summary}
 
                     />
             </div>

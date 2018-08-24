@@ -38,7 +38,7 @@ export default class Icons extends React.Component {
             icon={this.getIcon(this.props.skyIcon)}
             autoplay={true}
           />
-        )
+        );
     }
 }
 
