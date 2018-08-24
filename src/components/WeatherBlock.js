@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import Icons from './Icons';
 import TempLayout from './TempLayout';
 import DateSlider from './DateSlider';
-import './WeatherBlock.css';
 import axios from 'axios';
+import './WeatherBlock.css';
+
 
 export default class WeatherBlock extends React.Component {
   state = {
@@ -42,7 +43,7 @@ export default class WeatherBlock extends React.Component {
    
         const forecastDay = this.props.forecastDay;
         // Example Dark Sky API Query:
-        // https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/2f59170b5a75d855ff4dbbcfa4c498e0/40.016457,-105.285884?exclude=minutely,hourly,alerts,flags
+        // http://cors-anywhere.dan.earth:8080/https://api.darksky.net/forecast/0c7f10d0d5fa0d8602b3c9664767e7f7/40.016457,-105.285884,1532992316?exclude=minutely,hourly,alerts,flags
         
         axios.get(`${CORS}${API_URL}${API_KEY}/${cognizantLatLong}${date}${excludeBlocks}`)
             .then(response => { 
@@ -52,10 +53,16 @@ export default class WeatherBlock extends React.Component {
                 if (forecastDay) { // 3 or 7-Day Forecast
                     this.setState({ 
                         skyIcon: dsData.daily.data[forecastDay].icon,
-                        summary: dsData.daily.data[forecastDay].summary, 
+                        summary: dsData.daily.data[forecastDay].summary.substring(0, 39),
                         temperature: Math.round(dsData.daily.data[forecastDay].temperatureHigh),
                         tempHigh: Math.round(dsData.daily.data[forecastDay].temperatureHigh),
                         tempLow: Math.round(dsData.daily.data[forecastDay].temperatureLow),
+                        tempHighTime: this.toTextTimeHours(dsData.daily.data[forecastDay].apparentTemperatureHighTime),
+                        tempLowTime: this.toTextTimeHours(dsData.daily.data[forecastDay].apparentTemperatureLowTime),
+                        precipProbability: Math.round(dsData.daily.data[forecastDay].precipProbability * 100),
+                        precipType: dsData.daily.data[forecastDay].precipType,
+                        humidity: Math.round(dsData.daily.data[forecastDay].humidity * 200),
+                        uvIndex: dsData.daily.data[forecastDay].uvIndex,
                         doneLoading: true, 
                         timeMachineDate: this.toTextTime(dsData.daily.data[forecastDay].time),
                         backgroundColor: this.getColor(Math.round(dsData.daily.data[forecastDay].temperatureHigh))
@@ -67,6 +74,12 @@ export default class WeatherBlock extends React.Component {
                         temperature: Math.round(dsData.currently.temperature),
                         tempHigh: Math.round(dsData.daily.data[0].temperatureHigh),
                         tempLow: Math.round(dsData.daily.data[0].temperatureLow),
+                        tempHighTime: this.toTextTimeHours(dsData.daily.data[0].temperatureHighTime),
+                        tempLowTime: this.toTextTimeHours(dsData.daily.data[0].temperatureLowTime),
+                        precipProbability: Math.round(dsData.daily.data[0].precipProbability * 100),
+                        precipType: dsData.daily.data[0].precipType,
+                        humidity: Math.round(dsData.daily.data[0].humidity * 100),
+                        uvIndex: dsData.daily.data[0].uvIndex,
                         doneLoading: true,
                         backgroundColor: this.getColor(Math.round(dsData.currently.temperature))
                     });
@@ -106,6 +119,11 @@ export default class WeatherBlock extends React.Component {
     return `${textTime.toLocaleDateString('en-US')} - ${days[textTime.getDay()]}`;
   }
 
+  toTextTimeHours = unixTime => {
+    const textTime = new Date(unixTime * 1000);
+    return `${textTime.toLocaleTimeString('en-US')}`;
+  }
+
   getTimeMachine = date => {
     this.setState({ timeMachineDate: this.toTextTime(date) });
     this.getDarkSkyAPI(date);
@@ -113,7 +131,8 @@ export default class WeatherBlock extends React.Component {
 
   render() {
     
-    const { temperature, tempHigh, tempLow, summary, skyIcon, timeMachineDate, doneLoading } = this.state;
+    const { temperature, tempHigh, tempLow, tempHighTime, tempLowTime, summary, skyIcon, timeMachineDate, doneLoading,
+            precipProbability, precipType, humidity, uvIndex } = this.state;
 
     let bgColorStyle = {
         backgroundColor: this.state.backgroundColor
@@ -133,7 +152,14 @@ export default class WeatherBlock extends React.Component {
                     <TempLayout temperature={temperature}
                                 tempHigh={tempHigh}
                                 tempLow={tempLow}
+                                tempHighTime={tempHighTime}
+                                tempLowTime={tempLowTime}
+                                precipProbability={precipProbability}
+                                precipType={precipType}
+                                humidity={humidity}
+                                uvIndex={uvIndex}
                                 summary={summary}    
+
                     />
             </div>
             <div style={doneLoading ? {} : { display: 'none' }}>

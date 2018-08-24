@@ -42,6 +42,7 @@
     margin-left: 48px;
     /* float: left; */
     flex: 0 0 50%;
+    cursor: pointer;
 }
 
 .tempLayout {
