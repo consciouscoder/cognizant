@@ -33,8 +33,8 @@ export default class WeatherBlock extends React.Component {
   // getDarkSkyAPI - Function to request data from the DarkSky API - param date is optional
   //               - with date param is for Time Machine - without date will default to current or weather forecast
   getDarkSkyAPI = date => {
-        // 2f59170b5a75d855ff4dbbcfa4c498e0 -- dan@ladendorf.io -- API key
-        // 0c7f10d0d5fa0d8602b3c9664767e7f7 -- dladendorf@gmail.com -- backup API key
+        // 2f59170b5a75d855ff4dbbcfa4c498e0 -- dan@ -- API key
+        // 0c7f10d0d5fa0d8602b3c9664767e7f7 -- dladendorf@ -- backup API key
         // http://cors-anywhere.dan.earth:8080/ -- main CORS proxy
         // https://cors-anywhere.herokuapp.com/ -- backup CORS proxy
         const CORS = 'http://cors-anywhere.dan.earth:8080/';
