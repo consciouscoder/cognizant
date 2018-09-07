@@ -10,6 +10,7 @@ import './WeatherBlock.css';
 //              -- Reusable weather block component that takes optional props to display DarkSky API weather data
 //              -- props: API_KEY - (string) API KEY for DarkSky API 
 //                        latLong - (string) Latitude and longitude to retrieve the weather data for
+//                        forecastDay - (number) # of Days in future to forecast (leave blank for Time Machine)
 //
 export default class WeatherBlock extends React.Component {
   state = {
