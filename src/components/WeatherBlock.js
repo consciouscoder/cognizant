@@ -21,7 +21,7 @@ export default class WeatherBlock extends React.Component {
     skyIcon: '',
     x: 366,
     timeMachineDate: new Date().toLocaleDateString('en-US'),
-    backgroundColor: '#FF0000',
+    backgroundColor: '#FFFFFF',
     summary: '',
     doneLoading: false
   }
