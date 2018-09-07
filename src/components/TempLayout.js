@@ -2,8 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StatefulToolTip } from 'react-portal-tooltip';
 
-// TempLayout - Functional Component (stateless) -- Formats the layout of current temperature, high and low temperature and summary.
-
+// TempLayout - Functional Component (stateless)
+// -- Formats the layout of current temperature, high/low temperature and summary.
+// -- Stateful tooltips on temperature mouseover with these data points: precipitation probability and type,
+//      humidity and UV Index.
+//
 const TempLayout = props => {
 
     const { temperature, tempHigh, tempLow, tempHighTime, tempLowTime, summary,

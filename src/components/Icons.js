@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Skycons from 'react-skycons';
 
+// Icons -- Class Component
+//       -- renders the Skycon icon based on the daily forecast for specified date
+//
 export default class Icons extends React.Component {
 
     getIcon = icon => {

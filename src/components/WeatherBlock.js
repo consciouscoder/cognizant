@@ -6,7 +6,11 @@ import DateSlider from './DateSlider';
 import axios from 'axios';
 import './WeatherBlock.css';
 
-
+// WeatherBlock -- Class Component
+//              -- Reusable weather block component that takes optional props to display DarkSky API weather data
+//              -- props: API_KEY - (string) API KEY for DarkSky API 
+//                        latLong - (string) Latitude and longitude to retrieve the weather data for
+//
 export default class WeatherBlock extends React.Component {
   state = {
     dsDataCurrent: [],
@@ -14,7 +18,7 @@ export default class WeatherBlock extends React.Component {
     temperature: 0,
     tempHigh: 0,
     tempLow: 0,
-    skyIcon: 'PARTLY_CLOUDY_DAY',
+    skyIcon: '',
     x: 366,
     timeMachineDate: new Date().toLocaleDateString('en-US'),
     backgroundColor: '#FF0000',
@@ -26,14 +30,16 @@ export default class WeatherBlock extends React.Component {
     this.getDarkSkyAPI('');
   }
 
+  // getDarkSkyAPI - Function to request data from the DarkSky API - param date is optional
+  //               - with date param is for Time Machine - without date will default to current or weather forecast
   getDarkSkyAPI = date => {
-        // 2f59170b5a75d855ff4dbbcfa4c498e0 -- dan@ladendorf.io
+        // 2f59170b5a75d855ff4dbbcfa4c498e0 -- dan@ladendorf.io -- API key
         // 0c7f10d0d5fa0d8602b3c9664767e7f7 -- dladendorf@gmail.com -- backup API key
         // http://cors-anywhere.dan.earth:8080/ -- main CORS proxy
         // https://cors-anywhere.herokuapp.com/ -- backup CORS proxy
         const CORS = 'http://cors-anywhere.dan.earth:8080/';
         const API_URL = 'https://api.darksky.net/forecast/';
-        const API_KEY = this.props.API_KEY || '0c7f10d0d5fa0d8602b3c9664767e7f7'; // Get from props or default to 
+        const API_KEY = this.props.API_KEY || '0c7f10d0d5fa0d8602b3c9664767e7f7'; // Get from props or default to API_KEY
         const cognizantLatLong = this.props.latLong || '40.016457,-105.285884';   // Get from props or default to Cognizant latLong
         const excludeBlocks = '?exclude=minutely,hourly,alerts,flags'; // exclude these sections from JSON response
         
@@ -42,9 +48,10 @@ export default class WeatherBlock extends React.Component {
         }
    
         const forecastDay = this.props.forecastDay;
-        // Example Dark Sky API Query:
+        // Example of Dark Sky API query:
         // http://cors-anywhere.dan.earth:8080/https://api.darksky.net/forecast/0c7f10d0d5fa0d8602b3c9664767e7f7/40.016457,-105.285884,1532992316?exclude=minutely,hourly,alerts,flags
         
+        // Build the HTTP GET request query string
         axios.get(`${CORS}${API_URL}${API_KEY}/${cognizantLatLong}${date}${excludeBlocks}`)
             .then(response => { 
                 console.log(response);
@@ -90,6 +97,7 @@ export default class WeatherBlock extends React.Component {
             });
     }
 
+  // Set background color based on temperature
   getColor = tempCurrent => {
 
       if (tempCurrent >= 90) {
@@ -113,17 +121,20 @@ export default class WeatherBlock extends React.Component {
       }
   }
 
+  // Convert UNIX time to local time string with day of week
   toTextTime = unixTime => {
     const textTime = new Date(unixTime * 1000);
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     return `${textTime.toLocaleDateString('en-US')} - ${days[textTime.getDay()]}`;
   }
 
+  // Convert UNIX time to local time string
   toTextTimeHours = unixTime => {
     const textTime = new Date(unixTime * 1000);
     return `${textTime.toLocaleTimeString('en-US')}`;
   }
 
+  // Request new DarkSky API for Time Machine based on new date
   getTimeMachine = date => {
     this.setState({ timeMachineDate: this.toTextTime(date) });
     this.getDarkSkyAPI(date);

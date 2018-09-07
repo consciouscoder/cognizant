@@ -1,13 +1,17 @@
 import React from 'react';
 import { Slider } from 'antd';
 
+// DateSlider -- Class Component
+//            -- renders Slider input component for the Time Machine
+//
 export default class DateSlider extends React.Component {
 
-    handleChange = position => {
-        let timeToSubtract = (366 - position) * 86400000; // 366 - One year + 1 day (to see weather exactly one year ago today)
+    // Slider component callback to handle which past date for the Time Machine
+    handleChange = position => {                          // For calculating weather for the exact time in the past
+        let timeToSubtract = (366 - position) * 86400000; // 60 seconds * 60 minutes * 24 hours * 1000 (ms)
         let timeMachineDate = new Date(Date.now() - timeToSubtract).getTime() / 1000;
 
-        this.props.callbackParent(timeMachineDate.toFixed(0));
+        this.props.callbackParent(timeMachineDate.toFixed(0)); // return Time Machine date to parent via callback
     }
 
     formatter = value => {
