@@ -12,6 +12,8 @@ Global|Type	|  Description
  latLong	|  String  |  The latitude and longitude for the weather data
  forecastDay|  String  |  # of Days in future to forecast weather (optional - without is Time Machine mode) 
 
+======
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
