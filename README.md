@@ -1,3 +1,17 @@
+![alt text](http://cognizant.dan.earth/images/weatherblock_screen1.png "WeatherBlock")
+# WeatherBlock - A minimalist DarkSky weather component 
+### http://cognizant.dan.earth
+
+WeatherBlock was created as a technical challenge for Cognizant.
+
+The WeatherBlock component can take the following props:
+
+Global|Type	|  Description
+|:---|:---|:----
+ API_KEY	|  String  |  Your API KEY for the DarkSky API
+ latLong	|  String  |  The latitude and longitude for the weather data
+ forecastDay|  String  |  # of Days in future to forecast weather (optional - without is Time Machine mode) 
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
