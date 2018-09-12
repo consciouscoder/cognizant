@@ -6,6 +6,7 @@
     "antd": "^3.8.2",
     "antd-init": "^2.0.6",
     "axios": "^0.18.0",
+    "eslint-plugin-import": "^2.14.0",
     "prop-types": "^15.6.2",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
@@ -20,6 +21,5 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }
